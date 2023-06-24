@@ -1,0 +1,17 @@
+{
+ "age":  "Yaş",
+ "area": "Alan",
+ "bmi": "VKİ",
+ "data": "Veri",
+ "date": "Tarih",
+ "discount": "İndirim",
+ "lenght": "Uzunluk",
+ "mass": "Kilo",
+ "numeralSystem": "Sayı sistemi",
+ "speed": "Hız",
+ "temperature": "Sıcaklık",
+ "time": "Zaman",
+ "volume": "Hacim",
+ "currency":"Para birimi",
+ "loan":"Borç"
+}

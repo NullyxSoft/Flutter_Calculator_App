@@ -1,0 +1,17 @@
+{
+ "age":  "Age",
+ "area": "Area",
+ "bmi": "BMI",
+ "data": "Data",
+ "date": "Date",
+ "discount": "Discount",
+ "lenght": "Lenght",
+ "mass": "Mass",
+ "numeralSystem": "Numeral System",
+ "speed": "Speed",
+ "temperature": "Temperature",
+ "time": "Time",
+ "volume": "Volume",
+ "currency":"Currency",
+ "loan":"Loan"
+}
