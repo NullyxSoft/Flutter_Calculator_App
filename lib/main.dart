@@ -1,13 +1,21 @@
-import 'package:calculator_app/core/constants/app_constant.dart';
+import 'package:calculator_app/core/constants/app_routes.dart';
 import 'package:calculator_app/core/ui/shared/custom_themes.dart';
 import 'package:calculator_app/core/ui/views/page_controller.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  runApp(EasyLocalization(supportedLocales: const [Locale('en', 'US'), Locale('tr', 'TR')], path: RoutePage.RoutePath, child: const MyApp()));
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(EasyLocalization(
+      supportedLocales: const [Locale('en', 'US'), Locale('tr', 'TR')],
+      path: RoutePage.RoutePath,
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

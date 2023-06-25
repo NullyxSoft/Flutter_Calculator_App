@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../constants/app_constant.dart';
+import '../../constants/app_icons.dart';
+import '../../constants/app_strings.dart';
 import '../widgets/custom_card.dart';
 
 class CalculatePageMenuEconomy extends StatelessWidget {
@@ -13,7 +13,8 @@ class CalculatePageMenuEconomy extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
         itemCount: PageIcons.pageIconMenuEconomyList.length,
         itemBuilder: (context, index) {
-          return PageRouteCard(index: index, iconList: PageIcons.pageIconMenuEconomyList, textList: PageTexts.pageTextsMenuEconomyList);
+          return PageRouteCard(
+              index: index, iconList: PageIcons.pageIconMenuEconomyList, textList: PageTexts.pageTextsMenuEconomyList);
         },
       ),
     );

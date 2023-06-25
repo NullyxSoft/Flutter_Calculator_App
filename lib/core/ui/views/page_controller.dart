@@ -1,8 +1,9 @@
-import 'package:calculator_app/core/constants/app_constant.dart';
+import 'package:calculator_app/core/ui/shared/ui_helpers.dart';
 import 'package:calculator_app/core/ui/views/calculate_page_menu_economy.dart';
 import 'package:calculator_app/core/ui/views/default_calculate_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/app_icons.dart';
 import 'calculate_page_menu.dart';
 
 class PageControllerView extends StatefulWidget {
@@ -30,7 +31,14 @@ class _PageControllerViewState extends State<PageControllerView> {
         backgroundColor: Colors.transparent,
         centerTitle: true,
         titleSpacing: 50,
-        title: _pageNavigationBar(),
+        title: Column(
+          children: [
+            Align(alignment: Alignment.center, child: _pageNavigationBar()),
+            const SizedBox(
+              height: UIHelper.MediumGap,
+            )
+          ],
+        ),
       ),
       body: pages[currentIndex],
     );
@@ -38,29 +46,24 @@ class _PageControllerViewState extends State<PageControllerView> {
 
   NavigationBar _pageNavigationBar() {
     return NavigationBar(
-      animationDuration: const Duration(seconds: 1),
-      indicatorColor: Colors.transparent,
-      elevation: 0,
-      indicatorShape: null,
-      backgroundColor: Colors.transparent,
-      labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+      animationDuration: const Duration(seconds: 5),
       selectedIndex: currentIndex,
       onDestinationSelected: (index) {
         setState(() {
           currentIndex = index;
         });
       },
-      destinations: const [
+      destinations: [
         NavigationDestination(
-          icon: PageIcons.DefaultCalculate,
+          icon: PageIcons.DefaultCalculate(currentIndex),
           label: '',
         ),
         NavigationDestination(
-          icon: PageIcons.Menu,
+          icon: PageIcons.Menu(currentIndex),
           label: '',
         ),
         NavigationDestination(
-          icon: PageIcons.MenuEconomy,
+          icon: PageIcons.MenuEconomy(currentIndex),
           label: '',
         )
       ],

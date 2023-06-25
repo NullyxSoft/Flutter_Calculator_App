@@ -1,6 +1,8 @@
-import 'package:calculator_app/core/constants/app_constant.dart';
 import 'package:calculator_app/core/ui/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
+
+import '../../constants/app_icons.dart';
+import '../../constants/app_strings.dart';
 
 class CalculatePageMenu extends StatelessWidget {
   const CalculatePageMenu({super.key});
