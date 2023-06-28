@@ -1,20 +1,21 @@
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
 
+import 'package:calculator_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class PageIcons {
   static Icon DefaultCalculate(int Index) => Icon(
         Icons.calculate_outlined,
-        color: Index == 0 ? Colors.orange : Colors.grey,
+        color: Index == 0 ? SameColors.operatorBtnColor : Colors.grey,
       );
 
   static Icon Menu(int Index) => Icon(
         Icons.space_dashboard_rounded,
-        color: Index == 1 ? Colors.orange : Colors.grey,
+        color: Index == 1 ? SameColors.operatorBtnColor : Colors.grey,
       );
   static Icon MenuEconomy(int Index) => Icon(
         Icons.request_page_outlined,
-        color: Index == 2 ? Colors.orange : Colors.grey,
+        color: Index == 2 ? SameColors.operatorBtnColor : Colors.grey,
       );
 
   static const Icon Age = Icon(Icons.cake_outlined);

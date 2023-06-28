@@ -17,16 +17,14 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: buttonTapped,
-      child: Container(
-        decoration: BoxDecoration(
-          color: color,
-        ),
+    return Container(
+      padding: EdgeInsets.zero,
+      child: InkWell(
+        onTap: buttonTapped,
         child: Center(
           child: Text(
             text,
-            style: TextStyle(color: textColor, fontSize: UIHelper.XLargeFontSize),
+            style: TextStyle(color: textColor, fontSize: UIHelper.XXLargeFontSize),
           ),
         ),
       ),

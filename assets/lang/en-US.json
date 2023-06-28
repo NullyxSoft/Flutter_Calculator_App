@@ -13,5 +13,6 @@
  "time": "Time",
  "volume": "Volume",
  "currency":"Currency",
+ "investment":"Investment",
  "loan":"Loan"
 }

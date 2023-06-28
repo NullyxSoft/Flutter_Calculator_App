@@ -13,6 +13,7 @@ mixin UIHelper {
   static const double MediumFontSize = 15.0;
   static const double LargeFontSize = 18.0;
   static const double XLargeFontSize = 22.0;
+  static const double XXLargeFontSize = 26.0;
 
   static var brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness; // Get Device brightness
   static bool isDark = brightness == Brightness.dark;

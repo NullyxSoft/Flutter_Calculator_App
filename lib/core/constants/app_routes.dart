@@ -2,7 +2,7 @@
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
 import 'dart:core';
 
-class RoutePage {
+class PageRoutes {
   static const String RoutePath = 'assets/lang';
   static const String InitialRoute = '/';
   static const String Age = 'age';
@@ -21,4 +21,21 @@ class RoutePage {
   static const String Currency = 'currency';
   static const String Investment = 'investment';
   static const String Loan = 'loan';
+
+  static List<String> menuRoutesList = [
+    PageRoutes.Age,
+    PageRoutes.Area,
+    PageRoutes.BMI,
+    PageRoutes.Data,
+    PageRoutes.Date,
+    PageRoutes.Discount,
+    PageRoutes.Lenght,
+    PageRoutes.Mass,
+    PageRoutes.NumeralSystem,
+    PageRoutes.Speed,
+    PageRoutes.Temperature,
+    PageRoutes.Time,
+    PageRoutes.Volume,
+  ];
+  static List<String> menuEcononmyRoutesList = [PageRoutes.Currency, PageRoutes.Investment, PageRoutes.Loan];
 }

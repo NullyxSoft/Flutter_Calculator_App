@@ -15,57 +15,73 @@ class PageControllerView extends StatefulWidget {
   State<PageControllerView> createState() => _PageControllerViewState();
 }
 
-class _PageControllerViewState extends State<PageControllerView> {
-  int currentIndex = 0;
+class _PageControllerViewState extends State<PageControllerView> with TickerProviderStateMixin {
+  late TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 3, vsync: this, animationDuration: const Duration(seconds: 1));
+    tabController.addListener(handleTabSelection);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
+  void handleTabSelection() {
+    setState(() {});
+  }
+
   List<Widget> pages = [
     const DefaultCalculatePage(),
     const CalculatePageMenu(),
     const CalculatePageMenuEconomy(),
   ];
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        titleSpacing: 50,
-        title: Column(
-          children: [
-            Align(alignment: Alignment.center, child: _pageNavigationBar()),
-            const SizedBox(
-              height: UIHelper.MediumGap,
-            )
-          ],
+    return DefaultTabController(
+      initialIndex: tabController.index,
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          titleSpacing: 50,
+          title: Column(
+            children: [
+              Align(alignment: Alignment.center, child: _pageTabBar()),
+              //_pageNavigationBar()
+              const SizedBox(
+                height: UIHelper.MediumGap,
+              )
+            ],
+          ),
         ),
+        body: TabBarView(controller: tabController, children: pages),
       ),
-      body: pages[currentIndex],
     );
   }
 
-  NavigationBar _pageNavigationBar() {
-    return NavigationBar(
-      animationDuration: const Duration(seconds: 5),
-      selectedIndex: currentIndex,
-      onDestinationSelected: (index) {
+  TabBar _pageTabBar() {
+    return TabBar(
+      controller: tabController,
+      indicator: const BoxDecoration(color: Colors.transparent),
+      physics: const AlwaysScrollableScrollPhysics(),
+      onTap: (value) {
         setState(() {
-          currentIndex = index;
+          tabController.index = value;
         });
       },
-      destinations: [
-        NavigationDestination(
-          icon: PageIcons.DefaultCalculate(currentIndex),
-          label: '',
+      tabs: [
+        Tab(
+          icon: PageIcons.DefaultCalculate(tabController.index),
         ),
-        NavigationDestination(
-          icon: PageIcons.Menu(currentIndex),
-          label: '',
-        ),
-        NavigationDestination(
-          icon: PageIcons.MenuEconomy(currentIndex),
-          label: '',
-        )
+        Tab(icon: PageIcons.Menu(tabController.index)),
+        Tab(icon: PageIcons.MenuEconomy(tabController.index))
       ],
     );
   }

@@ -5,8 +5,10 @@ class PageRouteCard extends StatelessWidget {
   final int index;
   final List<Icon> iconList;
   final List<String> textList;
+  final VoidCallback onTapped;
   const PageRouteCard({
     Key? key,
+    required this.onTapped,
     required this.index,
     required this.iconList,
     required this.textList,
@@ -15,13 +17,19 @@ class PageRouteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTapped,
       child: Card(
         color: Colors.transparent,
         elevation: 0,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [Icon(iconList.elementAt(index).icon,), Text(textList.elementAt(index))],
+            children: [
+              Icon(
+                iconList.elementAt(index).icon,
+              ),
+              Text(textList.elementAt(index))
+            ],
           ),
         ),
       ),

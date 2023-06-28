@@ -13,5 +13,6 @@
  "time": "Zaman",
  "volume": "Hacim",
  "currency":"Para birimi",
+ "investment":"Yatırım",
  "loan":"Borç"
 }

@@ -1,6 +1,7 @@
+import 'package:get/get.dart';
 import 'package:math_expressions/math_expressions.dart';
 
-class CalculateController {
+class CalculateController extends GetxController {
   var userInput = '';
   var userOutput = '';
 
@@ -10,22 +11,30 @@ class CalculateController {
     Parser p = Parser();
     Expression expression = p.parse(userInputFunc);
     ContextModel context = ContextModel();
-    double eval = expression.evaluate(EvaluationType.REAL, context);
+    var eval = expression.evaluate(EvaluationType.REAL, context);
 
     userOutput = eval.toString();
+    update();
   }
 
   clearPropertyPressed() {
-    userInput = '';
-    userOutput = '';
+    if (userInput.isNotEmpty || userOutput.isNotEmpty) {
+      userInput = '';
+      userOutput = '';
+    }
+    update();
   }
 
   deleteButtonPressed() {
-    userInput = userInput.substring(0, userInput.length - 1);
+    if (userInput.isNotEmpty) {
+      userInput = userInput.substring(0, userInput.length - 1);
+    }
+    update();
   }
 
   numberButtonPressed(List<String> numButtons, int index) {
     userInput += numButtons.elementAt(index);
+    update();
   }
 
   bool isOperator(String y) {
@@ -33,5 +42,16 @@ class CalculateController {
       return true;
     }
     return false;
+  }
+
+  bool lastInputIsOperator() {
+    if (userInput.isEmpty) {
+      return true;
+    }
+    if (isOperator(userInput[userInput.length - 1])) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

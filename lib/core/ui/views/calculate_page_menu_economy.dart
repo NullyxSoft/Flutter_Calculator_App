@@ -1,3 +1,4 @@
+import 'package:calculator_app/core/constants/app_routes.dart';
 import 'package:flutter/material.dart';
 import '../../constants/app_icons.dart';
 import '../../constants/app_strings.dart';
@@ -14,7 +15,10 @@ class CalculatePageMenuEconomy extends StatelessWidget {
         itemCount: PageIcons.pageIconMenuEconomyList.length,
         itemBuilder: (context, index) {
           return PageRouteCard(
-              index: index, iconList: PageIcons.pageIconMenuEconomyList, textList: PageTexts.pageTextsMenuEconomyList);
+              onTapped: () => Navigator.pushNamed(context, PageRoutes.menuEcononmyRoutesList.elementAt(index)),
+              index: index,
+              iconList: PageIcons.pageIconMenuEconomyList,
+              textList: PageTexts.pageTextsMenuEconomyList);
         },
       ),
     );
